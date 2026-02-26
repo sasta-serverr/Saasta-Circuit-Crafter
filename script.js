@@ -63,7 +63,7 @@ function addResistorRow() {
     const newRow = document.createElement('div');
     newRow.className = 'product resistor-row';
     newRow.innerHTML = `
-        <img src="assets/images/resistors.jpg" alt="Resistors">
+        <img src="images/resistors.jpg" alt="Resistors">
         <div class="product-info"><span>Specific Resistor</span><small>Price TBD</small></div>
         <div class="input-group" style="width: 100%;">
             <input type="text" name="Resistor Value ${resCount}" placeholder="Value (e.g. 1kΩ)" style="width: 100%; margin-bottom: 5px;">
@@ -80,7 +80,7 @@ function addCapacitorRow() {
     const newRow = document.createElement('div');
     newRow.className = 'product cap-row';
     newRow.innerHTML = `
-        <img src="assets/images/Capcitors.jpg" alt="Capacitors">
+        <img src="images/Capcitors.jpg" alt="Capacitors">
         <div class="product-info"><span>Specific Capacitor</span><small>Price TBD</small></div>
         <div class="input-group" style="width: 100%;">
             <input type="text" name="Capacitor Value ${capCount}" placeholder="Value (e.g. 10uF)" style="width: 100%; margin-bottom: 5px;">
