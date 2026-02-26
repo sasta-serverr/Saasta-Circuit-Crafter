@@ -182,7 +182,7 @@ async function payWithRazorpay() {
 
         // 4. Configure Razorpay Popup
         var options = {
-            "key": "rzp_test_SJjM5EzjnFRi7Z", // YOUR TEST KEY ID
+            "key": "rzp_live_SJiSy0USTt3wUl", // YOUR TEST KEY ID
             "amount": order.amount,
             "currency": "INR",
             "name": "Saasta Circuit Crafter",
