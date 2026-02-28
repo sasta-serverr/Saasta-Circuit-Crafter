@@ -107,28 +107,30 @@ function addRequestRow() {
     container.appendChild(newRow);
 }
 
-// --- BILL CALCULATION WITH DELIVERY FEE ---
+// --- BILL CALCULATION WITH SMART DELIVERY RULES ---
 function calculateTotal() {
-    // 1. Determine Delivery Fee
-    let deliveryFee = 99; // Default Standard Delivery
-    let displayLabel = "Delivery Charge: ₹99";
-    
-    if (document.getElementById("deliveryExpress") && document.getElementById("deliveryExpress").checked) {
-        deliveryFee = 299;
-        displayLabel = "Express Delivery Charge: ₹299";
-    }
-
-    // Update the UI label in Step 3
-    if(document.getElementById("deliveryDisplay")) {
-        document.getElementById("deliveryDisplay").innerText = displayLabel;
-    }
-
-    // 2. Calculate Items
+    // 1. Calculate Items First
     let itemTotal = 0;
     let allInputs = document.querySelectorAll("input[type='number']");
     allInputs.forEach(input => {
         itemTotal += (parseInt(input.value) || 0) * (parseInt(input.dataset.price) || 0);
     });
+
+    // 2. Determine Delivery Fee (Default to ₹29 Normal Delivery)
+    let deliveryFee = 29; 
+    let displayLabel = "Normal Delivery: ₹29";
+    
+    // Check if they selected Special Delivery (₹299)
+    if (document.getElementById("deliveryExpress") && document.getElementById("deliveryExpress").checked) {
+        deliveryFee = 299;
+        displayLabel = "Special Delivery: ₹299";
+    }
+
+    // Update the UI label in Step 3
+    if(document.getElementById("deliveryDisplay")) {
+        document.getElementById("deliveryDisplay").innerText = displayLabel;
+        document.getElementById("deliveryDisplay").style.color = "#64748b"; // Keep it standard gray
+    }
 
     // 3. Set Total (Only add delivery fee if they bought an item)
     let finalTotal = 0;
